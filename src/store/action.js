@@ -1,6 +1,11 @@
-import * as actions from './actionTypes';
+import * as actions from "./actionTypes";
 
-export const addTask = task => ({
+export const addTask = (task) => ({
   type: actions.TASK_ADD,
-  payload: task
+  payload: task,
+});
+
+export const Delete = (index) => ({
+  type: actions.TASK_REMOVE,
+  payload: index,
 });

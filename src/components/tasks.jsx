@@ -1,16 +1,21 @@
-import { useSelector } from "react-redux"
+import { useSelector } from "react-redux";
 
-const Tasks = () => {
+const Tasks = ({handleDelete}) => {
 
-    const tasks = useSelector(store => store.tasks)
+ 
+  
+  const tasks = useSelector((store) => store.tasks);
 
-    return (
-        <div>
-            {tasks.map((item, index) =>
-                <div key={index}>{item}</div>
-            )}
+  return (
+    <div className="input-value">
+      {tasks.map((item, index) => (
+        <div key={index}>
+          {item}
+          <button onClick={handleDelete}>Delete</button>
         </div>
-    )
-}
+      ))}
+    </div>
+  );
+};
 
-export default Tasks
+export default Tasks;

@@ -1,18 +1,28 @@
-import * as actions from './actionTypes';
+import * as actions from "./actionTypes";
 
 const initialState = {
-    tasks: []
-}
+  tasks: [],
+};
 
 export default function reducer(state = initialState, action) {
-    switch (action.type) {
-        case actions.TASK_ADD:
-            return {
-                ...state,
-                tasks: [...state.tasks, action.payload]
-            };
+  switch (action.type) {
+    case actions.TASK_ADD:
+      return {
+        ...state,
+        tasks: [...state.tasks, action.payload],
+      };
 
-        default:
-            return state;
-    }
+      case action.TASK_REMOVE:
+      return {
+        ...state,
+        tasks: [...state.tasks.splice(action.payload,1)],
+      }
+
+   
+    
+      
+    
+    default:
+      return state;
+  }
 }
